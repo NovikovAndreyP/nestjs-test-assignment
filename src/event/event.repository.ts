@@ -11,7 +11,8 @@ export class EventRepository extends Repository<Event> {
   findByInterval(start_date: string, end_date: string): Promise<Event[]> {
     return this.find({
       where: {
-        start_date: Between(start_date, end_date)
+        start_date: Between(start_date, end_date),
+        end_date: Between(start_date, end_date)
       }
     });
   }
